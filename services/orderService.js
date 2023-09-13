@@ -169,11 +169,11 @@ const createCardOrder = async (session) => {
 
   // const totalPrice = session.amount_total / 100;
 
-  // const cart = await Cart.findById(cartId);
-  // const user = await User.findOne({ email: session.customer_email });
+  const cart = await Cart.findById(cartId);
+  const user = await User.findOne({ email: session.customer_email });
 
-  // console.log(user);
-  // console.log(cart);
+  console.log(user);
+  console.log(cart);
   // // 3) Create order with payment method card
   // const order = await Order.create({
   //   user: user._id,
