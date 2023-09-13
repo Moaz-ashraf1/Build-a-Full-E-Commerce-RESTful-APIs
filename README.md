@@ -1,21 +1,28 @@
-# Build-a-Full-E-Commerce-RESTful-APIs
+
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+  <a href="https://github.com/Moaz-ashraf1/Build-a-Full-E-Commerce-RESTful-APIs">
+    <img src="https://cdn-icons-png.flaticon.com/512/6213/6213702.png" alt="Logo" width="200" height="200">
+  </a>
+
+  <h3 align="center">Node.js E-Commerce API</h3>
+</p>
+
+<h4 align="center">Ecommerce API built using NodeJS & Express & MongoDB</h4>
 
 ## Table of Contents
 
 - [Description](#description)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
+- [Deployment](#deployment)
 - [Installation](#installation)
-- [Usage](#usage)
-- [API Endpoints](#api-endpoints)
-- [Configuration](#configuration)
-- [Testing](#testing)
-- [Contributing](#contributing)
-- [License](#license)
+
 
 ## Description
 
-A RESTful API for building a full-featured E-Commerce application. This API provides the backend functionality required for managing products, users, orders, reviews, wishlist, address, coupons and more in an E-Commerce system.
+A RESTful API for building a full-featured E-Commerce application. This API provides the backend functionality required for managing products, users, orders, reviews, wishlist, addresses, coupons and more in an E-Commerce system.
 
 ## Features
 
@@ -49,33 +56,25 @@ A RESTful API for building a full-featured E-Commerce application. This API prov
 - compression
 - Stripe _(for payment processing)_
 
-## Installation
-Before you begin, ensure you have met the following requirements:
+  
+## Deployment
 
-- [Node.js](https://nodejs.org/) installed
-- [npm](https://www.npmjs.com/) (Node Package Manager) installed
-- [MongoDB](https://docs.mongodb.com/manual/installation/) installed and running
+The API is deployed with git into Cyclic. Below are the steps taken:
 
-# Clone the Repository
-git clone https://github.com/Moaz-ashraf1/Build-a-Full-E-Commerce-RESTful-APIs.git
+```
+git init
+git add -A
+git commit -m "Commit message"
+```
 
-# Navigate to the project directory
-cd Build-a-Full-E-Commerce-RESTful-APIs
+ ## Installation
 
-# Install Dependencies
-npm install
+You can fork the app or you can git-clone the app into your local machine. Once done that, please install all the dependencies by running
 
-# Environment Configuration
-# 1. Create a `.env` file in the root directory of the project.
-# 2. Define the necessary environment variables in the `.env` file. For example:
-# PORT=8000
-# DATABASE_URI=mongodb://localhost/mydatabase
-# SECRET_KEY=mysecretkey
-# STRIPE_SECRET=mystripesecret
+```sh
+$ npm install
+set your env variables
+$ npm run start:dev
 # 3. Save the `.env` file.
 
-# Start the Application
-npm start
-
-npm start
 
