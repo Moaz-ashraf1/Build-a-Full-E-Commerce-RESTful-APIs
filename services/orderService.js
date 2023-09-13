@@ -169,6 +169,8 @@ const createCardOrder = async (session) => {
   const cart = await Cart.findById(cartId);
   const user = await User.findOne({ email: session.customer_email });
 
+  console.log(user);
+  console.log(cart);
   // 3) Create order with payment method card
   const order = await Order.create({
     user: user._id,
@@ -179,9 +181,7 @@ const createCardOrder = async (session) => {
     isPaid: true,
     paidAt: Date.now(),
   });
-  console.log(order);
-  console.log(user);
-  console.log(cart);
+
   // 4) Decrement product quantity, increment product sold
   if (order) {
     const bulkOptions = cart.cartItems.map((item) => ({
