@@ -162,6 +162,8 @@ exports.createCheckoutSession = asyncHandler(async (req, res, next) => {
 });
 
 const createCardOrder = async (session) => {
+  console.log(session);
+
   const totalPrice = session.amount_total / 100;
   const cartId = session.client_reference_id;
   const { email } = session;
@@ -170,8 +172,6 @@ const createCardOrder = async (session) => {
   const cart = await Cart.findById(cartId);
   const user = await User.findOne({ email });
 
-  console.log(cart);
-  console.log(user);
   // 3) Create order with payment method card
   const order = await Order.create({
     user: user._id,
@@ -216,7 +216,7 @@ exports.webhookCheckout = asyncHandler(async (req, res, next) => {
 
   if (event.type === "checkout.session.completed") {
     createCardOrder(event);
-
+    console.log(event);
     res.status(200).json({ recived: true });
   }
 });
