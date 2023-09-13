@@ -5,7 +5,7 @@ const cors = require("cors");
 const compression = require("compression");
 const dotenv = require("dotenv");
 const morgan = require("morgan");
-
+const { webhookCheckout } = require("./services/orderService");
 // Load environment variables from 'config.env'
 dotenv.config({
   path: "config.env",
@@ -31,6 +31,12 @@ app.options("*", cors());
 // compress all responses
 app.use(compression());
 
+//checkout session completed
+app.post(
+  "/webhook",
+  express.raw({ type: "application/json" }),
+  webhookCheckout
+);
 // Middleware setup
 app.use(express.json());
 // Allow access to static files in the "uploads" directory
