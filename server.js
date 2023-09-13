@@ -49,7 +49,7 @@ if (process.env.NODE_ENV === "development") {
 mounteRoute(app);
 // Handle unmatched routes
 app.all("*", (req, res, next) => {
-  next(new AppError(`can't find this route:${req.originalUrl}`, "400"));
+  next(new AppError(`can't find this route:${req.originalUrl}`, 400));
 });
 
 // Global error handling middleware for express
