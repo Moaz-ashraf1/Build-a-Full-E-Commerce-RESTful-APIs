@@ -56,21 +56,21 @@ Before you begin, ensure you have met the following requirements:
 - [npm](https://www.npmjs.com/) (Node Package Manager) installed
 
 ```sh
-# Clone the Repository
+#Clone the Repository
 git clone https://github.com/Moaz-ashraf1/Build-a-Full-E-Commerce-RESTful-APIs.git
 
-# Navigate to the project directory
+#Navigate to the project directory
 cd Build-a-Full-E-Commerce-RESTful-APIs
 
-# Install Dependencies
+#Install Dependencies
 npm install
 
-# Environment Configuration
-# 1. Create a `.env` file in the root directory of the project.
-# 2. Define the necessary environment variables in the `.env` file. For example:
-# PORT=8000
-# DATABASE_URI=mongodb://localhost/mydatabase
-# SECRET_KEY=mysecretkey
+#Environment Configuration
+#1. Create a `.env` file in the root directory of the project.
+#2. Define the necessary environment variables in the `.env` file. For example:
+#PORT=8000
+#DATABASE_URI=mongodb://localhost/mydatabase
+#SECRET_KEY=mysecretkey
 #STRIPE_SECRET=mystripesecret
 # 3. Save the `.env` file.
 
