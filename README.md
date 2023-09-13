@@ -75,6 +75,6 @@ You can fork the app or you can git-clone the app into your local machine. Once 
 $ npm install
 set your env variables
 $ npm run start:dev
-# 3. Save the `.env` file.
+
 
 
