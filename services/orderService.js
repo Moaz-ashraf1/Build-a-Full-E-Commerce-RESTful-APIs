@@ -162,14 +162,16 @@ exports.createCheckoutSession = asyncHandler(async (req, res, next) => {
 });
 
 const createCardOrder = async (session) => {
-  const totalPrice = session.amount_total;
+  const totalPrice = session.amount_total / 100;
   const cartId = session.client_reference_id;
-  const email = session.email;
+  const { email } = session;
   const shippingAddress = session.metadata;
 
   const cart = await Cart.findById(cartId);
   const user = await User.findOne({ email });
 
+  console.log(cart);
+  console.log(user);
   // 3) Create order with payment method card
   const order = await Order.create({
     user: user._id,
