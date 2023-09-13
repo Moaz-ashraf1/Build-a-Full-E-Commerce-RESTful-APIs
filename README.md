@@ -39,7 +39,7 @@ A RESTful API for building a full-featured E-Commerce application. This API prov
 - Cart functionality.
 - Payment processing integration (Stripe).
 
-  ## Technologies Used
+## Technologies Used
 
 - Node.js
 - Express.js
