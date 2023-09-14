@@ -2,10 +2,15 @@ const path = require("path");
 
 const express = require("express");
 const cors = require("cors");
+const hpp = require("hpp");
 const compression = require("compression");
+const { rateLimit } = require("express-rate-limit");
 const dotenv = require("dotenv");
 const morgan = require("morgan");
+const mongoSanitize = require("express-mongo-sanitize");
+const xss = require("xss-clean");
 const { webhookCheckout } = require("./services/orderService");
+
 // Load environment variables from 'config.env'
 dotenv.config({
   path: "config.env",
@@ -37,16 +42,36 @@ app.post(
   express.raw({ type: "application/json" }),
   webhookCheckout
 );
+
 // Middleware setup
-app.use(express.json());
+app.use(express.json({ limit: "20kb" }));
+
 // Allow access to static files in the "uploads" directory
 app.use(express.static(path.join(__dirname, "uploads")));
+
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
 
+// To apply data sanitization
+app.use(mongoSanitize());
+
+app.use(xss());
+// Limit each Ip to 100 requests per 'window' (here, per 15 mintues)
+const apiLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  limit: 100,
+  message:
+    "Too many accounts created from this IP, please try again after an hour",
+});
+app.use("/api/", apiLimiter);
+
+//middleware to protect against HTTP Parameter Pollution attacks
+app.use(hpp());
+
 // Mount Routes
 mounteRoute(app);
+
 // Handle unmatched routes
 app.all("*", (req, res, next) => {
   next(new AppError(`can't find this route:${req.originalUrl}`, 400));

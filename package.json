@@ -17,7 +17,10 @@
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "express-async-handler": "^1.2.0",
+    "express-mongo-sanitize": "^2.2.0",
+    "express-rate-limit": "^7.0.0",
     "express-validator": "^7.0.1",
+    "hpp": "^0.2.3",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^7.4.3",
     "morgan": "^1.10.0",
@@ -26,7 +29,8 @@
     "sharp": "^0.32.5",
     "slugify": "^1.6.6",
     "stripe": "^13.5.0",
-    "uniqid": "^5.4.0"
+    "uniqid": "^5.4.0",
+    "xss-clean": "^0.1.4"
   },
   "devDependencies": {
     "eslint": "^8.44.0",

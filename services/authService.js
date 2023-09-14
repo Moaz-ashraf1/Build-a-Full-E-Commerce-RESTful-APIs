@@ -4,6 +4,9 @@ const JWT = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 
 const asyncHandler = require("express-async-handler");
+
+const { sanitizeUser } = require("../utils/sanitizeDate");
+
 const AppError = require("../utils/appError");
 const User = require("../models/userModel");
 const sendEmail = require("../utils/sendEmail");
@@ -22,12 +25,7 @@ exports.signup = asyncHandler(async (req, res, next) => {
 
   const token = createToken(user._id);
 
-  res.status(201).json({
-    data: {
-      token,
-      user,
-    },
-  });
+  res.status(201).json({ data: sanitizeUser(user), token });
 });
 
 // @desc   login

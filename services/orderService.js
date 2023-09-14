@@ -124,6 +124,7 @@ exports.createCheckoutSession = asyncHandler(async (req, res, next) => {
 
   // 1) Get cart depend on cartId
   const cart = await Cart.findById(req.params.cartId);
+
   if (!cart)
     return next(
       new AppError(`There is no cart with this id ${req.params.cartId}`, 404)
