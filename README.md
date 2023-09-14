@@ -54,6 +54,10 @@ A RESTful API for building a full-featured E-Commerce application. This API prov
 - nodemailer
 - Cors
 - compression
+- hpp
+- express-rate-limit
+- express-mongo-sanitize
+- xss-clean
 - Stripe _(for payment processing)_
 
   
