@@ -11,7 +11,6 @@ const sendErrorForDev = (err, res) =>
 const sendErrorForProd = (err, res) =>
   res.status(err.statusCode).json({
     status: err.status,
-
     message: err.message,
   });
 

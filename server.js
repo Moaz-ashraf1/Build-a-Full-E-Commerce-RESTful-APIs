@@ -57,6 +57,7 @@ if (process.env.NODE_ENV === "development") {
 app.use(mongoSanitize());
 
 app.use(xss());
+
 // Limit each Ip to 100 requests per 'window' (here, per 15 mintues)
 const apiLimiter = rateLimit({
   windowMs: 15 * 60 * 1000,

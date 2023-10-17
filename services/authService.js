@@ -50,7 +50,7 @@ exports.login = asyncHandler(async (req, res, next) => {
   });
 });
 
-// @desc   make sure that user is logged in
+// @desc  make sure that user is logged in
 exports.protect = asyncHandler(async (req, res, next) => {
   // 1) Check if token exist, if exist get it
   let token;
